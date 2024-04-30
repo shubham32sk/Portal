@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:name="file">
+    <item android:color="#1b2330" android:offset="0.0" />
+    <item android:color="#0D1118" android:offset="1.0" />
+</selector>

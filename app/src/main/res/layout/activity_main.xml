@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/main"
+    android:layout_height="match_parent"
+    android:background="@color/bluish"
+    tools:context=".MainActivity"
+    tools:ignore="ExtraText">
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="290dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/black">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="STUDENT PORTAL"
+                android:gravity="center_horizontal"
+                android:paddingBottom="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/library_id"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="16dp"
+                android:minHeight="48dp"
+                android:textColor="@color/white"
+                android:hint="Library id"
+                android:textColorHint="@color/white"
+                app:boxStrokeColor="@color/white" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/password"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="30dp"
+                android:minHeight="48dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:hint="Password*"
+                app:boxStrokeColor="@color/white" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="143dp"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password?"
+                android:textSize="16sp"
+                android:layout_gravity="end"
+                android:textColor="@color/white"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                app:cornerRadius="7sp"
+                />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="Made with  ❤️  by TEAM ERP"
+                />
+
+
+
+        </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
