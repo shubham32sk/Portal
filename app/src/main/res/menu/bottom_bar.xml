@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homePageFragment"
+        android:icon="@drawable/home"
+        android:title="Home" />
+    <item
+        android:icon="@drawable/like"
+        android:id="@+id/likePageFragment"
+        android:title="Like" />
+    <item
+        android:id="@+id/addMusic"
+        android:title="add"
+        android:icon="@drawable/plus"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/playlistPageFragment"
+        android:icon="@drawable/playlist"
+        android:title="Playlist" />
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/profile"
+        android:title="Profile" />
+</menu>

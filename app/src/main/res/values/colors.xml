@@ -2,6 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="violet_light">#C9A0DC</color>
+    <color name="violet">#8A2BE2</color>
     <color name="bluish">#0F1C3F</color>
     <color name="customGraient"></color>
+    <color name="customGreen">#004b23</color>
 </resources>

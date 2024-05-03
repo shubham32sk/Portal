@@ -1,8 +1,11 @@
 package com.example.portal
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -13,42 +16,29 @@ import com.google.firebase.ktx.Firebase
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding:ActivityMainBinding
-    lateinit var firebaseAuth: FirebaseAuth
-    private var db= Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val id:TextView=findViewById(R.id.library_id)
-        val pass:TextView=findViewById(R.id.password)
-        val submit:Button=findViewById(R.id.login)
 
-        firebaseAuth = FirebaseAuth.getInstance()
+        val sign_in: Button = findViewById(R.id.sign_in_button)
+        val sign_up: Button = findViewById(R.id.sign_up_button)
 
-        submit.setOnClickListener{
-            var lib_id=id.text.toString()
-            var password=pass.text.toString()
-
-            val intent = Intent(this, Login_activity::class.java)
-            startActivity(intent)
-
-            var user = hashMapOf(
-                "lib_id" to lib_id,
-                "password" to password
-            )
-            db.collection("user").document("firebaseAuth").set(user)
-                .addOnSuccessListener {
-                    Toast.makeText(this,"Succesfully Added!",Toast.LENGTH_SHORT).show()
-                    id.text=""
-                    pass.text=""
-
-                }
-                .addOnFailureListener{
-                    Toast.makeText(this,"Failed!",Toast.LENGTH_SHORT).show()
-                }
-        }
+        sign_in.setOnClickListener{signin()}
+        sign_up.setOnClickListener{signup()}
 
 
     }
+        private fun signup() {
+            val intent = Intent(this, Sign_up::class.java)
+            startActivity(intent)
+
+        }
+
+        private fun signin() {
+            val intent = Intent(this, sign_in::class.java)
+            startActivity(intent)
+
+        }
+
 }

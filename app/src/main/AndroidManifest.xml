@@ -13,25 +13,13 @@
         android:theme="@style/Theme.Portal"
         tools:targetApi="31">
         <activity
-            android:name=".timeTable"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".Sign_up"
+            android:exported="false" />
         <activity
-            android:name=".Login_activity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".sign_in"
+            android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".SecondActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
