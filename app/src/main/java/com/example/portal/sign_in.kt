@@ -32,26 +32,66 @@ class sign_in : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        submit.setOnClickListener {
-            val email = id.text.toString()
-            val passwd = pass.text.toString()
 
-            if (email.isNotEmpty() && passwd.isNotEmpty()) {
-                firebaseAuth.signInWithEmailAndPassword(email, passwd).addOnCompleteListener {
-                    if (it.isSuccessful) {
+        submit.setOnClickListener {
+            var mail_id = id.text.toString()
+            var password = pass.text.toString()
+
+
+            var user = hashMapOf(
+                "lib_id" to mail_id,
+                "password" to password,
+            )
+            if (mail_id.isNotEmpty() && password.isNotEmpty()) {
+
+
+                db.collection("user").add(user)
+                    //.document("firebaseAuth").set(user)
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "Succesfully signed in!!", Toast.LENGTH_SHORT)
+                            .show()
+                        id.text = ""
+                        pass.text = ""
+                        Log.d(TAG, "DocumentSnapshot added with ID: ${firebaseAuth}")
                         val intent = Intent(this, SecondActivity::class.java)
                         startActivity(intent)
-                    } else {
-                        Toast.makeText(this, "Please fill empty fields!!", Toast.LENGTH_SHORT)
-                            .show()
+
                     }
-                }
+                    .addOnFailureListener {
+                        Toast.makeText(this, "Failed!", Toast.LENGTH_SHORT).show()
+                        Log.w(TAG, "Error adding document")
+                    }
+                submit.postDelayed({
+
+                }, 3000)
             } else {
-                Toast.makeText(this, "Failed!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please fill empty fields", Toast.LENGTH_SHORT).show()
             }
+
+
         }
     }
 }
+
+
+
+
+//            if (email.isNotEmpty() && passwd.isNotEmpty()) {
+//                firebaseAuth.signInWithEmailAndPassword(email, passwd).addOnCompleteListener {
+//                    if (it.isSuccessful) {
+//                        val intent = Intent(this, SecondActivity::class.java)
+//                        startActivity(intent)
+//                    } else {
+//                        Toast.makeText(this, "Please fill empty fields!!", Toast.LENGTH_SHORT)
+//                            .show()
+//                    }
+//                }
+//            } else {
+//                Toast.makeText(this, "Failed!", Toast.LENGTH_SHORT).show()
+//            }
+//        }
+//    }
+//}
 
 
 
