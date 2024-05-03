@@ -33,36 +33,28 @@ class sign_in : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         submit.setOnClickListener {
-            var lib_id = id.text.toString()
-            var password = pass.text.toString()
+            val email = id.text.toString()
+            val passwd = pass.text.toString()
 
-            val intent = Intent(this, SecondActivity::class.java)
-            startActivity(intent)
-
-            var user = hashMapOf(
-                "lib_id" to lib_id,
-                "password" to password
-            )
-            db.collection("user").add(user)
-                //.document("firebaseAuth").set(user)
-                .addOnSuccessListener {
-                    Toast.makeText(this, "Succesfully signed in!", Toast.LENGTH_SHORT).show()
-                    id.text = ""
-                    pass.text = ""
-                    Log.d(TAG, "DocumentSnapshot added with ID: ${firebaseAuth}")
-
+            if (email.isNotEmpty() && passwd.isNotEmpty()) {
+                firebaseAuth.signInWithEmailAndPassword(email, passwd).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        val intent = Intent(this, SecondActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(this, "Please fill empty fields!!", Toast.LENGTH_SHORT)
+                            .show()
+                    }
                 }
-                .addOnFailureListener {
-                    Toast.makeText(this, "Failed!", Toast.LENGTH_SHORT).show()
-                    Log.w(TAG, "Error adding document")
-                }
-            submit.postDelayed({
-            }, 3000)
+            } else {
+                Toast.makeText(this, "Failed!", Toast.LENGTH_SHORT).show()
+            }
         }
-
-
     }
 }
+
+
+
 
 //        db.collection("user").document(firebaseAuth.toString())
 //            .get()
